@@ -13,7 +13,7 @@
 
 ## Run the server
 
-1) cd inorbit
+1) Get to the folder where you downloaded the repository
 2) There should be a file: manage.py
 3) execute : python manage.py runserver
 4) You should see the following text
