@@ -3,7 +3,7 @@
 
 ## Installation
 
-1) clone this repository 
+1) clone this repository (git clone https://github.com/dgutnisky/inorbit.git)
 2) Install django if you don't have it
    
    conda install django
@@ -13,7 +13,7 @@
 
 ## Run the server
 
-1) Get to the folder where you downloaded the repository
+1) Get to the folder where you downloaded the repository (cd inorbit)
 2) There should be a file: manage.py
 3) execute : python manage.py runserver
 4) You should see the following text
