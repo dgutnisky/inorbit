@@ -1,5 +1,11 @@
 # inorbit
 
+Instructions to install, run the server, use the app, how to properly format the queries, what files to look at the code and a small list of things to improve
+
+I choose to use django as the web framework. It allows to quickly concentrate on the functionality and not the configuration of the server. I'm also familiar mostly with Python so the learning curve is faster. 
+It allow the creation of html templates that are dynamically populated with server-side parameters
+
+
 
 ## Installation
 
