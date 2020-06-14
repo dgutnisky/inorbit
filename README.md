@@ -33,7 +33,7 @@ If it all works you should see a dropdown menu to select the available robots (t
 - Once the button 'Save' is clicked, the text is verified at the server to see if it is a valid configuration
 - If it is valid the robot status text will displayed it was correctly saved
 - If not, there is going to be an error message (either not a JSON or a Grammaer Error)
-- Another way of accessing the data of the robot is directly going to http://127.0.0.1:8000/robotConfig/<robotId>/
+- Another way of accessing the data of the robot is directly going to http://127.0.0.1:8000/robotConfig/robotId/
 
 
 ## Configuration Grammar
