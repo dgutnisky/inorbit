@@ -1,0 +1,1 @@
+{"cameras": {"$and": [{"$eq": ["privacy_mode", 1]}, {"$gt": ["battery_level", 90]}]}, "newEquip": {"$not": {"$lte": ["motor_speed", 90]}}, "scanner": {"$eq": ["speed", 80]}, "telemetry": true}

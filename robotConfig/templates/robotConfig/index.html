@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robot Config - Inorbit</title>
+</head>
+<body>
+    <form id="defaults" >
+        <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
+    </form>
+
+
+    <br><br><br>
+    <select id="roboSel" name="roboSel" onchange="javascript:location.href = this.value;">
+        <option value="none" selected  hidden>
+            Select a Robot
+        </option>
+        {% for rId in robotList %}
+            {% if rId == robotId %}
+                <option value = "/robotConfig/{{ rId }}/" selected="selected"> {{rId}} </option>
+            {% else %}
+                <option value = "/robotConfig/{{ rId }}/"> {{rId}} </option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br><br>
+    {% if not robotId %}
+        <h2 id="currentRobot">
+            Selected Robot: ------
+        </h2>
+    {% else %}
+        <h2 id="currentRobot">
+            Selected Robot: {{ robotId }}
+        </h2>
+    {% endif %}
+    <br>
+    <h2 id="statusRobot">
+        Status Robot:  {{ statusRobot }}
+    </h2>
+    <br>
+    <br>
+    <form id="roboEditForm" action = "update" method="POST" name="roboEditForm">
+        {% csrf_token %}
+        <input type = "submit" value = "Save" id="submit" name="submit" disabled>
+    </form>
+    <br>
+    <textarea id="txtArea" name="txtArea" rows=40 cols=80 form="roboEditForm" onkeyup="submit.disabled=false">
+        {{ jsonRoboTxt }}
+    </textarea>
+
+
+    <script>
+
+        var csrfcookie = function() {
+            var cookieValue = null,
+                name = 'csrftoken';
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+         };
+
+        function validate() {
+            var txt = document.getElementById("txtArea").innerHTML;
+            var obj = JSON.stringify(txt);
+            var xml = new XMLHttpRequest();
+            console.log(txt)
+            xml.open("POST","/robotConfig/update/{{ robotId }}/");
+            xml.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xml.setRequestHeader('X-CSRFToken', csrfcookie());
+            xml.send(obj)
+
+
+        }
+    </script>
+</body>
+
+</html>

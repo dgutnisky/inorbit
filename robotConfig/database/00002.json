@@ -1,0 +1,1 @@
+{"otraCosa": true, "teletransportation": false, "testSingleNot": {"$not": {"$and": [{"$eq": ["val", 20]}, {"$or": [{"$gte": ["speed", 40]}, {"$lt": ["battery", 20]}]}]}}}

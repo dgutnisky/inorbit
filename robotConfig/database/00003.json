@@ -1,0 +1,1 @@
+{"antenna": true, "axis": {"$and": [{"$eq": ["val", 20]}, {"$lte": ["weight", 8]}]}, "led": {"$eq": ["speed", 5]}}
